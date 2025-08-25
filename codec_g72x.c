@@ -589,8 +589,7 @@ static struct ast_translator lintog72x = {
             if (!strcasecmp(var->name, "sendrate")) {
                 rate = atoi(var->value);
                 if (rate == 53 || rate == 63) {
-                    if (option_verbose > 2)
-                        ast_verbose(VERBOSE_PREFIX_3 "G.723.1 setting sendrate to %d\n", rate);
+                    ast_debug(5, "G.723.1 setting sendrate to %d\n", rate);
                     g723_sendrate = (rate == 63) ? G723_RATE_63 : G723_RATE_53;
                 } else {
                     ast_log(LOG_ERROR, "G.723.1 sendrate must be 53 or 63\n");
